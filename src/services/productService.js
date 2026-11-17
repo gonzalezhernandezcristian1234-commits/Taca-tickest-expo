@@ -62,9 +62,8 @@ export const deleteProduct = async (id) => {
     const productos = await productRepository.findAll();
 
     const productosFiltrados = productos.filter(
-        producto => producto.id !== id
+        producto => producto.id !== Number(id)
     );
-
     if (productos.length === productosFiltrados.length) {
         return false;
     }

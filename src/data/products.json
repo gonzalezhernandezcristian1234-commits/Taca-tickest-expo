@@ -5,12 +5,5 @@
     "descripcion": "Mouse gamer con iluminacion RGB",
     "precio": 85000,
     "stock": 25
-  },
-  {
-    "id": 2,
-    "nombre": "Monitor Samsung",
-    "descripcion": "Monitor LED de 24 pulgadas",
-    "precio": 550000,
-    "stock": 8
   }
 ]
