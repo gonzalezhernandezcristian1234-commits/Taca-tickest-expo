@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "id": "39d2294b-b454-4948-8910-76f8b197bf62"
+  },
+  {
+    "id": "e904e3db-c232-4184-afdc-5fd863c5febd",
+    "nombre": "Teclado mecanico",
+    "descripcion": "Teclado mecanico para computador",
+    "precio": 120000,
+    "stock": 15
+  }
+]
