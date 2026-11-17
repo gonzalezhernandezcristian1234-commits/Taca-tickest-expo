@@ -5,5 +5,12 @@
     "descripcion": "Mouse ergonomico USB",
     "precio": 65000,
     "stock": 20
+  },
+  {
+    "id": 2,
+    "nombre": "Monitor Samsung",
+    "descripcion": "Monitor LED de 24 pulgadas",
+    "precio": 550000,
+    "stock": 8
   }
 ]
