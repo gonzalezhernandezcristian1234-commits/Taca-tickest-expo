@@ -6,12 +6,13 @@ export const getAllProducts = async () => {
     return await productRepository.findAll();
 };
 
-// consultamos un producto por su identificador unico o ID
+// Consultar un producto por su identificador unico o ID
 export const getProductById = async (id) => {
     const productos = await productRepository.findAll();
 
-    return productos.find(producto => producto.id === id);
+    return productos.find(producto => producto.id === Number(id));
 };
+
 
 // Registramos un producto
 export const createProduct = async (productoDato) => {
@@ -37,7 +38,9 @@ export const createProduct = async (productoDato) => {
 export const updateProduct = async (id, datosActualizados) => {
     const productos = await productRepository.findAll();
 
-    const indice = productos.findIndex(producto => producto.id === id);
+    const indice = productos.findIndex(
+        producto => producto.id === Number(id)
+    );
 
     if (indice === -1) {
         return null;
@@ -46,7 +49,7 @@ export const updateProduct = async (id, datosActualizados) => {
     productos[indice] = {
         ...productos[indice],
         ...datosActualizados,
-        id
+        id: Number(id),
     };
 
     await productRepository.saveAll(productos);

@@ -1,10 +1,10 @@
 [
   {
     "id": 1,
-    "nombre": "Mouse inalambrico",
-    "descripcion": "Mouse ergonomico USB",
-    "precio": 65000,
-    "stock": 20
+    "nombre": "Mouse gamer RGB",
+    "descripcion": "Mouse gamer con iluminacion RGB",
+    "precio": 85000,
+    "stock": 25
   },
   {
     "id": 2,
