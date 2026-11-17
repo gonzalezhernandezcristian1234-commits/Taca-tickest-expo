@@ -4,4 +4,13 @@ import { obtenerProductoPorId, obtenerProductos, registrarProducto } from "../co
 
 const router = Router();
 
-// cons
+// consultamos todos los productos
+router.get('/', obtenerProductos);
+
+// Consultamos un producto por su identificador unico o ID
+router.get('/:id', obtenerProductoPorId);
+
+// Registramos un producto 
+router.post('/', registrarProducto);
+
+export default router;
