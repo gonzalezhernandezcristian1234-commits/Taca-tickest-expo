@@ -1,5 +1,6 @@
-
 import * as servicioProductos from '../services/productService.js';
+import { validarProducto } from '../domain/product.js';
+import AppError from '../errors/AppError.js';
 
 // A continuacion consultamos todos los productos
 export const obtenerProductos = async (req, res, next) => {
@@ -32,6 +33,11 @@ export const obtenerProductoPorId = async (req, res, next) => {
 // Registramos un producto
 export const registrarProducto = async (req, res, next) => {
     try {
+        const errores = validarProducto(req.body);
+
+        if (errores.length > 0) {
+            return next(new AppError(errores.join(', '), 400));
+        }
         const nuevoProducto = await servicioProductos.createProduct(req.body);
 
         res.status(201).json(nuevoProducto);
@@ -44,6 +50,11 @@ export const registrarProducto = async (req, res, next) => {
 // Actualizamos un producto
 export const actualizarProducto = async (req, res, next) => {
     try {
+        const errores = validarProducto(req.body, true);
+
+        if (errores.length > 0) {
+            return next(new AppError(errores.join(', '), 400));
+        }
         const productoActualizado = await servicioProductos.updateProduct(
             req.params.id,
             req.body
