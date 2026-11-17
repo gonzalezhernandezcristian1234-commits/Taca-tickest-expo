@@ -39,3 +39,46 @@ export const registrarProducto = async (req, res, next) => {
         next(error);
     }
 };
+
+
+// Actualizamos un producto
+export const actualizarProducto = async (req, res, next) => {
+    try {
+        const productoActualizado = await servicioProductos.updateProduct(
+            req.params.id,
+            req.body
+        );
+
+        if (!productoActualizado) {
+            return res.status(404).json({
+                mensaje: 'Producto no encontrado'
+            });
+        }
+
+        res.status(200).json(productoActualizado);
+    } catch (error) {
+        next(error);
+    }
+};
+
+// Eliminamos un producto
+export const eliminarProducto = async (req, res, next) => {
+    try {
+        const eliminado = await servicioProductos.deleteProduct(req.params.id);
+
+        if (!eliminado) {
+            return res.status(404).json({
+                mensaje: 'Producto no encontrado'
+            });
+        }
+
+        res.status(200).json({
+            mensaje: 'Producto eliminado correctamente'
+        });
+    } catch (error) {
+        next(error);
+    }
+};
+
+
+
