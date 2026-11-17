@@ -17,8 +17,12 @@ export const getProductById = async (id) => {
 export const createProduct = async (productoDato) => {
     const productos = await productRepository.findAll();
 
+    const nuevoId = productos.length > 0
+        ? Math.max(...productos.map(producto => producto.id)) + 1
+        : 1;
+
     const nuevoProducto = {
-        id: crypto.randomUUID(),
+        id: nuevoId,
         ...productoDato
     };
 
